@@ -1,0 +1,99 @@
+.ms-auto .last-item {
+  margin-right: 15px;
+}
+
+.text {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 1.5em;
+  position: relative;
+  border-right: 2px solid transparent;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 211px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .text {
+    font-size: 1.2em;
+  }
+
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 167px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .show .ms-auto .last-item {
+    margin-right: 0px;
+  }
+
+  .fixed-bottom {
+    position: initial;
+    margin-bottom: -140px;
+  }
+
+  .mobilePagination {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .underlined > a.router-link-exact-active::after {
+    display: block;
+    border-bottom: 2px solid #c06e04;
+    margin-bottom: -2px;
+    transform: scaleX(1);
+  }
+
+  .underlined > a {
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .underlined > a:after {
+    display: block;
+    content: "";
+    border-bottom: solid 2px lightgray;
+    margin-bottom: -2px;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  .underlined > a:hover:after {
+    transform: scaleX(1);
+  }
+}
+
+nav .this-is-my-own-class {
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 700ms;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+}
+
+nav .this-is-my-own-class.not-collapsed {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(270deg);
+}

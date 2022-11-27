@@ -1,70 +1,83 @@
 <template>
-    <b-navbar type="dark fixed-top" variant="dark">
-        <b-link class="navbar-brand" to="/"/>
-      <b-navbar-nav class="me-auto">
-        <b-nav-item class="text-typewriter-parent" to="/"><p class="text animation-typewriter">CASH CONNAISSEUR</p></b-nav-item>
-        <b-nav-item to="/about">About</b-nav-item>
+  <b-navbar class="fixed-top" toggleable="lg" type="dark" variant="dark">
+    <b-link class="navbar-brand" to="/" />
+    <b-navbar-nav class="me-auto">
+      <b-nav-item class="text-typewriter-parent" to="/"><p class="text animation-typewriter">CASH CONNAISSEUR</p></b-nav-item>
+    </b-navbar-nav>
+    <b-navbar-toggle class="navbar-toggle-button this-is-my-own-class" target="nav-collapse"></b-navbar-toggle>
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav v-if="showDefault == 'default'" class="ms-auto">
+        <b-nav-item class="underlined" to="/modal">Default</b-nav-item>
+        <b-nav-item class="underlined" to="/products">Products</b-nav-item>
+        <b-nav-item class="underlined" to="/login">Login</b-nav-item>
+        <b-nav-item class="last-item underlined" to="/register">Register</b-nav-item>
       </b-navbar-nav>
-      <b-navbar-nav class="ms-auto">
-        <b-nav-item to="">Login</b-nav-item>
-        <b-nav-item class="last-item" to="">Login</b-nav-item>
+      <b-navbar-nav v-if="showDefault === 'user'" class="ms-auto">
+        <b-nav-item class="underlined" to="/modal">User</b-nav-item>
+        <b-nav-item class="underlined" to="/products">Products</b-nav-item>
+        <b-nav-item class="underlined" to="/profile">Profile</b-nav-item>
+        <b-nav-item class="last-item underlined" @click="logout">Logout</b-nav-item>
       </b-navbar-nav>
-    </b-navbar>
+      <b-navbar-nav v-if="showDefault === 'admin'" class="ms-auto">
+        <b-nav-item class="underlined" to="/modal">Admin</b-nav-item>
+        <b-nav-item class="underlined" to="/products">Products</b-nav-item>
+        <b-nav-item class="underlined" to="/users">Users</b-nav-item>
+        <b-nav-item class="underlined" to="/profile">Profile</b-nav-item>
+        <b-nav-item class="last-item underlined" @click="logout">Logout</b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
 export default {
-    name: 'HeaderMain'
-}
+  name: "HeaderMain",
+  
+  data() {
+    return {
+      showDefault: "default",
+    };
+  },
+  methods: {
+    redirectAfterLogout() {
+      setTimeout(() => (this.$router.push("/login")), 1200);
+    },
+    logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("token_expiration_date");
+      localStorage.removeItem("userType");
+      localStorage.removeItem("userId");
+      this.showDefault = "default";
+      document.getElementById("contentContainer").innerHTML = "";
+      document.getElementById("contentContainer").innerHTML = "<h3>Logging out...</h3>";
+      
+      this.redirectAfterLogout();
+    },
+    checkUserType() {
+      if(localStorage.getItem("userType") == null) {
+        this.showDefault = "default";
+      } else if(localStorage.getItem("userType") === "user") {
+        this.showDefault = "user";
+      } else if(localStorage.getItem("userType") === "admin") {
+        this.showDefault = "admin";
+      }
+    }
+  },
+  watch: {
+    $route() {
+      this.checkUserType();
+    },
+  },
+  mounted() {
+    this.checkUserType();
+  }
+};
 </script>
 
 <style>
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-
-.navbar-brand {
-    background-image: url(../assets/logo.png);
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 15px;
-}
-
-.ms-auto .last-item {
-    margin-right: 15px;
-}
-
-.text {
-    font-family: "Anonymous Pro", monospace;
-    position: relative;
-    border-right: 2px solid transparent;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.animation-typewriter {
-  animation: typewriter 3s steps(16) 1s 1 normal both,
-    blinkTextCursor 500ms steps(44) 9 normal;
-}
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 142px;
-  }
-}
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: hsl(0, 0%, 80%);
-  }
-  to {
-    border-right-color: transparent;
-  }
+h3 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 </style>

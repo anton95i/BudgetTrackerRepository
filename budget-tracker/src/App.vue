@@ -1,48 +1,41 @@
 <template>
   <div id="app">
     <HeaderMain />
-    <router-view/>
+    <router-view />
     <FooterMain />
   </div>
 </template>
 
 <script>
-import HeaderMain from './components/header-main.vue'
-import FooterMain from './components/footer-main.vue'
+import HeaderMain from "./components/header-main.vue";
+import FooterMain from "./components/footer-main.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HeaderMain,
-    FooterMain
-  }
-}
+    FooterMain,
+  },
+  methods: {
+    checkToken() {
+      if(localStorage.getItem("token_expiration_date") != null) {
+        let tokenExpiration = localStorage.getItem("token_expiration_date");
+        let now = Date.now();
+        if (now > tokenExpiration) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("token_expiration_date");
+          localStorage.removeItem("userType");
+          localStorage.removeItem("userId");
+          this.$router.push("/login");
+        }
+      } else {
+        localStorage.removeItem("token");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userType");
+      }
+    }
+  },
+  mounted() {
+    this.checkToken();
+  },
+};
 </script>
-
-<style>
-body {
-  margin-top: 85px;
-  margin-bottom: 140px;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 5px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-  padding: 5px;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>

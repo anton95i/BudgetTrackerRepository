@@ -1,0 +1,155 @@
+body {
+  margin-top: 85px;
+  margin-bottom: 140px;
+  background-image: url("../../assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.imprint-image {
+  border-radius: 25px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+nav {
+  padding: 5px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+  padding: 5px;
+}
+
+tr:hover {
+  cursor: pointer;
+}
+
+button.btn-secondary,
+button.btn-primary {
+  background-color: #c06e04 !important;
+  border-color: dimgray !important;
+}
+
+button.btn-secondary:hover,
+button.btn-primary:hover {
+  background-color: #a35d04 !important;
+}
+
+#contentContainer {
+  border: 2px solid #cecece;
+}
+
+.logincontentContainer {
+  border: 2px solid #cecece;
+  max-width: 390px;
+}
+
+.signupcontentContainer {
+  border: 2px solid #cecece;
+  max-width: 750px;
+}
+
+nav a.router-link-exact-active {
+  color: #c06e04 !important;
+}
+
+.navbar-toggle-button {
+  border: none;
+  margin-right: 5px;
+}
+
+.navbar-brand {
+  background-image: url(../../assets/logo2.png);
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 15px;
+}
+
+.animation-typewriter {
+  animation: typewriter 3s steps(16) 1s 1 normal both, blinkTextCursor 500ms steps(44) 9 normal;
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: hsl(0, 0%, 80%);
+  }
+
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.customPagination > li > button {
+  color: dimgray;
+  background-color: whitesmoke;
+}
+
+.customPagination > li.active > button {
+  background-color: #c06e04 !important;
+  border-color: dimgrey !important;
+}
+
+.customPagination > li.disabled > span {
+  color: lightgray;
+  border-color: lightgray !important;
+}
+
+.customPagination > li[role="separator"] > span {
+  color: dimgray;
+  border-color: lightgray !important;
+  background-color: whitesmoke;
+}
+
+.customPagination > li > button:hover {
+  color: white;
+  background-color: silver !important;
+}
+
+.customPagination > li > button[role="menuitemradio"]:focus {
+  box-shadow: none;
+  color: white;
+  background-color: #c06e04 !important;
+}
+
+.customPagination > li > button[role="menuitem"]:focus {
+  box-shadow: none;
+  color: dimgray;
+  background-color: whitesmoke !important;
+}
+
+.input-group-append > button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form-signin > label > a {
+  color: #2c3e50;
+  text-decoration: none;
+  background: linear-gradient(to right, rgba(100, 200, 200, 1), rgba(100, 200, 200, 1)),
+    linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+.form-signin > label > a:hover {
+  background-size: 0 3px, 100% 3px;
+}
