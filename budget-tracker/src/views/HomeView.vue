@@ -119,7 +119,6 @@ export default {
       filterVarOne: null,
       filterVarTwo: null,
       filterOptions: [
-        // FOOD, CLOTHES, ENTERTAINMENT, HOUSING, TRANSPORTATION, HEALTH, EDUCATION, SAVINGS, SALARY, OTHER;
         { value: null, text: "All Categories" },
         { value: "FOOD", text: "Food" },
         { value: "CLOTHES", text: "Clothes" },
