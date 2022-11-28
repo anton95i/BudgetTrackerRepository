@@ -16,7 +16,7 @@
         <img class="imprint-image" style="width: 75%;" src="../assets/vasic.jpg" />
       </b-col>
       <b-col style="margin-right:50px;">
-        <img class="imprint-image" style="width: 75%" src="../assets/default_profile_picture.jpg" />
+        <img class="imprint-image" style="width: 75%" src="../assets/morkoc.jpg" />
       </b-col>
     </b-row>
     <b-row>
