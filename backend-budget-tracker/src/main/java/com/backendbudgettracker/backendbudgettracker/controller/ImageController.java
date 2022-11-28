@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backendbudgettracker.backendbudgettracker.entity.Image;
-import com.backendbudgettracker.backendbudgettracker.entity.Auction;
-import com.backendbudgettracker.backendbudgettracker.repository.AuctionRepository;
 import com.backendbudgettracker.backendbudgettracker.repository.ImageRepository;
 import com.backendbudgettracker.backendbudgettracker.security.JwtHelper;
 
@@ -40,13 +38,6 @@ public class ImageController {
         this.imageRepository = imageRepository;
     }
 
-    /*
-     * returns all images
-     * {
-     * "type"
-     * "externalId"
-     * }
-     */
     @PostMapping("/findByTypeAndExternalId")
     public List<Image> findByTypeAndExternalId(@RequestBody Map<String, String> params, HttpServletRequest request,
             HttpServletResponse response) throws IOException {

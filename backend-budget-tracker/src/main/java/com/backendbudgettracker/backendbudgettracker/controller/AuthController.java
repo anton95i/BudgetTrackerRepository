@@ -38,9 +38,6 @@ public class AuthController {
 
     private UserRepository userRepository;
 
-    @Autowired
-    private ImageRepository imageRepository;
-
     private PasswordEncoder passwordEncoder;
 
     private AuthenticationManager authenticationManager;
@@ -125,14 +122,6 @@ public class AuthController {
         return ResponseEntity.ok(created);
     }
 
-    /*
-     * returns JWT token
-     * "UNAUTHORIZED" if user inactive
-     * {
-     * "email"
-     * "password"
-     * }
-     */
     @PostMapping(value = "/login")
     public ResponseEntity<LoginReturnDTO> login(@RequestBody AuthRequest authRequest, HttpServletResponse response)
             throws IOException {
@@ -154,13 +143,6 @@ public class AuthController {
         return ResponseEntity.ok(loginReturn);
     }
 
-    /*
-     * update password
-     * {
-     * "oldPassword"
-     * "newPassword"
-     * }
-     */
     @PostMapping(value = "/updatePassword")
     public ResponseEntity<User> updatePassword(@RequestBody Map<String, String> params, HttpServletRequest request) {
         Long userId = jwtHelper.getUserIdFromRequest(request);
@@ -177,14 +159,6 @@ public class AuthController {
         return ResponseEntity.badRequest().build();
     }
 
-    /*
-     * set the "active" status of a user
-     * admin token only
-     * {
-     * "email"
-     * "active": true/false
-     * }
-     */
     @PostMapping(value = "/setUserActive")
     public ResponseEntity<User> setUserActive(@RequestBody Map<String, String> params, HttpServletRequest request,
             HttpServletResponse response) throws IOException {
@@ -206,16 +180,6 @@ public class AuthController {
         return ResponseEntity.badRequest().build();
     }
 
-    /*
-     * update Userdata
-     * admin token only
-     * {
-     * "id-email"
-     * "email"
-     * "firstName"
-     * "lastName"
-     * }
-     */
     @PostMapping(value = "/updateUserAsAdmin")
     public ResponseEntity<User> updateUserAsAdmin(@RequestBody Map<String, String> params, HttpServletRequest request,
             HttpServletResponse response) throws IOException {
@@ -235,15 +199,6 @@ public class AuthController {
         return ResponseEntity.badRequest().build();
     }
 
-    /*
-     * update Userdata
-     * {
-     * "email"
-     * "firstName"
-     * "lastName"
-     * "imgUrl"
-     * }
-     */
     @PostMapping(value = "/updateUser")
     public ResponseEntity<User> updateUser(@RequestBody Map<String, String> params, HttpServletRequest request,
             HttpServletResponse response) throws IOException {
@@ -261,14 +216,6 @@ public class AuthController {
         return ResponseEntity.ok(updated);
     }
 
-    /*
-     * set the "admin" status of a user
-     * admin token only
-     * {
-     * "email"
-     * "admin": true/false
-     * }
-     */
     @PostMapping(value = "/setUserAdmin")
     public ResponseEntity<User> setUserAdmin(@RequestBody Map<String, String> params, HttpServletRequest request,
             HttpServletResponse response) throws IOException {

@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.backendbudgettracker.backendbudgettracker.entity.IncomeAndExpenses;
 import com.backendbudgettracker.backendbudgettracker.repository.IncomeAndExpensesRepository;
-import com.backendbudgettracker.backendbudgettracker.repository.ProductRepository;
 import com.backendbudgettracker.backendbudgettracker.security.JwtHelper;
 
 import lombok.extern.slf4j.Slf4j;

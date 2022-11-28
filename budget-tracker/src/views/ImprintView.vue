@@ -3,6 +3,36 @@
 
     <h2>Impressum</h2>
     <br />
+    <br />
+
+    <b-row>
+      <b-col style="margin-left:50px;">
+        <img class="imprint-image" style="width: 75%;" src="../assets/goldinger.jpg" />
+      </b-col>
+      <b-col>
+        <img class="imprint-image" style="width: 75%" src="../assets/steiner.jpg" />
+      </b-col>
+      <b-col>
+        <img class="imprint-image" style="width: 75%;" src="../assets/vasic.jpg" />
+      </b-col>
+      <b-col style="margin-right:50px;">
+        <img class="imprint-image" style="width: 75%" src="../assets/default_profile_picture.jpg" />
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col style="margin-left:50px;">
+        <small class="form-text" style="font-weight: 650; font-size: 20px">Alexander Goldinger</small>
+      </b-col>
+      <b-col>
+        <small class="form-text" style="font-weight: 650; font-size: 20px">Anton Steiner</small>
+      </b-col>
+      <b-col>
+        <small class="form-text" style="font-weight: 650; font-size: 20px">Branislav Vasic</small>
+      </b-col>
+      <b-col style="margin-right:50px;">
+        <small class="form-text" style="font-weight: 650; font-size: 20px">Morkoc Can</small>
+      </b-col>
+    </b-row>
 
     <h6>
       <br />Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz.<br /><br />

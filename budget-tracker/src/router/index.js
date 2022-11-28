@@ -31,9 +31,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "imprint" */ "../views/RegisterView.vue"),
   },
   {
-    path: "/products",
-    name: "products",
-    component: () => import(/* webpackChunkName: "imprint" */ "../views/ProductView.vue"),
+    path: "/statistic",
+    name: "statistic",
+    component: () => import(/* webpackChunkName: "imprint" */ "../views/StatisticView.vue"),
   },
   {
     path: "/modal",
@@ -44,16 +44,6 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: () => import(/* webpackChunkName: "imprint" */ "../views/ProfileView.vue"),
-  },
-  {
-    path: "/users",
-    name: "users",
-    component: () => import(/* webpackChunkName: "imprint" */ "../views/UsersView.vue"),
-  },
-  {
-    path: "/auction:auction",
-    name: "auction",
-    component: () => import(/* webpackChunkName: "imprint" */ "../views/AuctionDetailView.vue"),
   }
 ];
 
